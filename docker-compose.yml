@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:14-alpine 
+    container_name: psql
+    environment:
+      POSTGRES_USER: postgres_user  # Utilisateur de la base de données
+      POSTGRES_PASSWORD: postgres_password  # Mot de passe de la base de données
+      POSTGRES_DB: my_database  # Nom de la base de données
+    volumes:
+      - ./data:/var/lib/postgresql/data  # Volume pour persister les données de la base de données
+    ports:
+      - "5432:5432"  # Port PostgreSQL
